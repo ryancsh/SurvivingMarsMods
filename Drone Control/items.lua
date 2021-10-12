@@ -1,0 +1,88 @@
+return {
+PlaceObj('ModItemCode', {
+	'FileName', "Code/Script.lua",
+}),
+PlaceObj('ModItemOptionToggle', {
+	'name', "Enable",
+	'DisplayName', "Enable",
+	'Help', "Turn On to enable mod",
+	'DefaultValue', true,
+}),
+PlaceObj('ModItemOptionNumber', {
+	'name', "DisableIfDroneHubLessThan",
+	'DisplayName', "Disable if less than X drone hubs",
+	'Help', "Don't automatically reassign drones if less than X drone hubs built",
+	'DefaultValue', 2,
+}),
+PlaceObj('ModItemOptionNumber', {
+	'name', "MinDroneHub",
+	'DisplayName', "Minimum drone count for Drone Hubs",
+	'Help', "Ensure that drone counts for Drone Hubs don't go below this amount if mod is active",
+	'DefaultValue', 4,
+}),
+PlaceObj('ModItemOptionNumber', {
+	'name', "MinCommander",
+	'DisplayName', "Minimum drone count for RC Commanders",
+	'Help', "Ensure that drone counts for RC Commanders don't go below this amount if mod is active",
+	'DefaultValue', 4,
+}),
+PlaceObj('ModItemOptionToggle', {
+	'name', "AssignDroneHub",
+	'DisplayName', "Adjust DroneHub drones",
+	'Help', "On: Assign drones based on drone load of Drone Hubs | Off: Will only ensure drones do not drop below minimum",
+	'DefaultValue', true,
+}),
+PlaceObj('ModItemOptionToggle', {
+	'name', "AssignCommander",
+	'DisplayName', "Adjust RC Commander drones",
+	'Help', "On: Assign drones based on drone load of RC Commanders | Off: Will only ensure drones do not drop below minimum",
+	'DefaultValue', true,
+}),
+PlaceObj('ModItemOptionToggle', {
+	'name', "RemoveRocket",
+	'DisplayName', "Remove all drones assigned to rockets",
+	'Help', "Enable to automatically convert all drones assigned to rockets into prefabs",
+	'DefaultValue', true,
+}),
+PlaceObj('ModItemOptionNumber', {
+	'name', "DroneGroupSize",
+	'DisplayName', "Drone Group Size",
+	'Help', "When adding, removing or ordering drones, do it in groups of this size. Choose conservative values for this setting. Recommend against anything higher than 5 even in the late game.",
+	'DefaultValue', 1,
+	'MinValue', 1,
+	'MaxValue', 10,
+}),
+PlaceObj('ModItemOptionNumber', {
+	'name', "DroneHoursBetweenAssign",
+	'DisplayName', "Hours between drone reassignments",
+	'Help', "Duration of one drone reassignment cycle. Lower number for faster adjustments. Higher numbers for more stable drone population at hubs. Higher numbers are better for better performance.",
+	'DefaultValue', 8,
+	'MinValue', 1,
+}),
+PlaceObj('ModItemOptionNumber', {
+	'name', "BusyThreshold",
+	'DisplayName', "Busy Threshold",
+	'Help', "When hub has less than BusyThreshold idle drones for an entire cycle, consider hub busy and add more drones. If hub has more than (BusyThreshold + 2*DroneGroupSize) idle drones for an entire cycle, consider hub idle and remove drones.",
+	'DefaultValue', 2,
+}),
+PlaceObj('ModItemOptionToggle', {
+	'name', "RequestDronePrefabs",
+	'DisplayName', "Allow Automatic Requesting of Drone Prefabs",
+	'Help', "Will automatically queue up drone prefabs to be built at Drone Assembers if less than (total_number_of_hubs * DroneGroupSize) prefabs available. Will try to order in bulk if possible to reduce performance impact. Will always respect spare resource setting.",
+	'DefaultValue', true,
+}),
+PlaceObj('ModItemOptionNumber', {
+	'name', "DroneSpareResource",
+	'DisplayName', "Drone Spare Resource Threshold",
+	'Help', "Only request drone prefabs if we have this many recipes worth of spare materials. Set to higher values to reserve more resources for other purposes",
+	'DefaultValue', 100,
+	'MaxValue', 10000,
+	'StepSize', 100,
+}),
+PlaceObj('ModItemOptionToggle', {
+	'name', "EnableLog",
+	'DisplayName', "Enable logging",
+	'Help', "Enable printing to console for debugging purposes. Should generally be turned off. Only works if you have my library active mod as well.",
+	'DefaultValue', false,
+}),
+}
